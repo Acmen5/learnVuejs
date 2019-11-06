@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JS表达式</title>
+	</head>
+	<body>
+		<!-- JS表达式 -->
+		<div id="app">
+			<!-- 运算符 -->
+			<p>num + 24 = {{num + 24}}</p>
+			<!-- 三元表达式 -->
+			<p>Are you OK? {{ok ? 'i am OK!' : 'no'}}</p>
+			<!-- 对象方法直接调用 -->
+			<p>我的名字： {{name}}</p>
+			<p>名字倒转： {{name.split(' ').reverse().join(' ')}}</p>
+			<!-- 属性值运算 -->
+			<p v-bind:class="'col' + colNum">Acmen5</p>
+		</div>
+		<script src="https://cdn.bootcss.com/vue/2.6.6/vue.min.js"></script>
+		<script>
+			const app = new Vue({
+				el: "#app",
+				data: {
+					num: 10,
+					ok: true,
+					name: 'Acmen five',
+					colNum: 12
+				}
+			})
+		</script>
+	</body>
+</html>

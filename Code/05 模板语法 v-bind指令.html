@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>操作html标签属性的指令v-bind</title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- ischecked 数据绑定到checked属性上 -->
+			<input type="checkbox" v-bind:checked="ischecked">
+		</div>
+		<script src="https://cdn.bootcss.com/vue/2.6.6/vue.min.js"></script>
+		<script>
+			const app = new Vue({
+				el: '#app',
+				data: {
+					ischecked: true
+				}
+			})
+		</script>
+	</body>
+</html>

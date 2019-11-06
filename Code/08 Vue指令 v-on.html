@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Vue指令 V-on</title>
+	</head>
+	<body>
+		<div id="app">
+			<p>我叫: {{name}}</p>
+			<!-- v-on指令将DOM中的[event]操作与method方法选项中handleClick的值绑定 -->
+			<button v-on:[event]="handleClick">点击</button>
+		</div>
+		<script src="https://cdn.bootcss.com/vue/2.6.6/vue.min.js"></script>
+		<script>
+			const app = new Vue({
+				el: '#app',
+				data: {
+					event: 'click',
+					name: 'Acmen Five'
+				},
+				methods: {
+					handleClick:function() {
+						this.name = this.name.split(' ').reverse().join(' ')
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

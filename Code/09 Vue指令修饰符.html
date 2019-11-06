@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Vue指令修饰符</title>
+	</head>
+	<body>
+		<div id="app">
+			<form action="/" v-on:submit.prevent="submit">
+				<button type="submit">提交</button>
+			</form>
+		</div>
+		<script src="https://cdn.bootcss.com/vue/2.6.6/vue.min.js"></script>
+		<script type="text/javascript">
+			const app = new Vue({
+				el: '#app',
+				data: {
+					
+				},
+				methods: {
+					submit: function() {
+						console.log('提交成功！')
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
