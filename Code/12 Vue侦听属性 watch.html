@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Vue侦听属性 watch</title>
+	</head>
+	<body>
+		<div id="app">
+			<p>{{msg}}</p>
+			<button @click="handleClick('hello Acmen5')">改变</button>
+		</div>
+		<script src="https://cdn.bootcss.com/vue/2.6.6/vue.min.js"></script>
+		<script>
+			const app = new Vue({
+				el: '#app',
+				data: {
+					msg: 'hello world!'
+				},
+				methods: {
+					handleClick(val) {
+						return this.msg = val 
+					}
+				},     
+				watch: {
+					msg(newVal,oldVal) {
+						console.log('新的val= ' + newVal,'旧的val= '+ oldVal)
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

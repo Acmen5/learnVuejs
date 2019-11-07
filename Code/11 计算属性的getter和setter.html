@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>计算属性的getter和setter属性</title>
+	</head>
+	<body>
+		<div id="app">
+			<p>firstName: {{firstName}}</p>
+			<p>lastName: {{lastName}}</p>
+			<p>fullName: {{fullName}}</p>
+			<!-- 1. 首先通过点击触发click事件处理函数 -->
+			<button @click="changeName">改变名字</button>
+		</div>
+		<script src="https://cdn.bootcss.com/vue/2.6.6/vue.min.js"></script>
+		<script type="text/javascript">
+			const app = new Vue({
+				el: '#app',
+				data: {
+					firstName: '王',
+					lastName: '花花'
+				},
+				methods: {
+					// 2. 执行事件处理函数,改变了计算属性(fullName)的值,触发了fullName的setter
+					// 直接改变计算属性 fullName的值就可以触发setter
+					changeName() {
+						return this.fullName = '李花花'
+					}
+				},
+				computed: {
+					fullName:{
+						get() {
+							return this.firstName + this.lastName;
+						},
+						// 3.执行setter
+						set(newName) {
+							let name = newName.slice(0)
+							this.firstName = name.slice(0,1)
+							this.lastName = name.slice(1)
+						}
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

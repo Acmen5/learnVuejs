@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Vue过滤器的使用</title>
+	</head>
+	<body>
+		<div id="app">
+			<p>小写转大写: 过滤前{{msg}}------过滤后{{msg|toUpperCase}}</p>
+			<p>去除字符串中的数字: 过滤前{{msg2}}-----过滤后{{msg2|getString}}</p>
+		</div>
+		<script src="https://cdn.bootcss.com/vue/2.6.6/vue.min.js"></script>
+		<script>
+			const app = new Vue({
+				el: '#app',
+				data: {
+					msg: 'hello',
+					msg2: 'Acmen5'
+				},
+				filters: {
+					// 过滤器自动将信息作为参数传入到过滤器函数中
+					toUpperCase(val) {
+						return val.toUpperCase()
+					},
+					getString(val) {
+						let newVal = ''
+						val.split('').map(function(current) {
+							if(current>=0 && current<=9){
+								return
+							}else{
+								return newVal+=current
+							}
+						})
+						return newVal
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

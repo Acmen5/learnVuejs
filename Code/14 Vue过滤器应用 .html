@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Vue过滤器的应用</title>
+	</head>
+	<body>
+		<div id="app">
+			<p>不要<s>￥899</s>，只要{{price|joint}}</p>
+		</div>
+		<script src="https://cdn.bootcss.com/vue/2.6.6/vue.min.js"></script>
+		<script>
+			const app = new Vue({
+				el: '#app',
+				data: {
+					//后台价格数据
+					price: 199
+				},
+				filters: {
+					// hoint 定义一个字符串转大写的过滤器
+					joint(price) {
+						return '￥'+price
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

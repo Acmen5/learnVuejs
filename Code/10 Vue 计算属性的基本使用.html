@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Vue计算属性的基本使用</title>
+	</head>
+	<body>
+		<div id="app">
+			<p>我的名字: {{name}}</p>
+			<!-- 计算属性和普通属性的使用方法相同 -->
+			<p>通过计算属性翻转我的名字: {{reverseName}}</p>
+			<p>当前时间为： {{now}}</p>
+		</div>
+		<script src="https://cdn.bootcss.com/vue/2.6.6/vue.min.js"></script>
+		<script type="text/javascript">
+			const app = new Vue({
+				el: '#app',
+				data: {
+					name: 'Acmen Five',
+				},
+				computed:{
+					// reverseName是一个计算属性
+					reverseName:function() {
+						return this.name.split('').reverse().join('');
+					},
+					now: function() {
+						return Date.now()
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
